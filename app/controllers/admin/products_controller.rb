@@ -4,10 +4,11 @@ class Admin::ProductsController < ApplicationController
     @products = Product.order(id: :desc).all
   end
 
+  #this creates the instance, so the form knows about it (tim) 
   def new
     @product = Product.new
   end
-
+  #the form data is passed through product_params here
   def create
     @product = Product.new(product_params)
 
