@@ -19,7 +19,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
-More information in their docs: <https://stripe.com/docs/testing#cards>
+More information in their docs: <cc>
 
 ## Dependencies
 
