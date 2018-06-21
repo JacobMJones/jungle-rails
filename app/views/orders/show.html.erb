@@ -1,13 +1,45 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order #<%= @order.id %>
+
+    </h1>
+    <h4>      
+      <% if current_user %>
+      <%= current_user.email %>
+      <% else %>
+      <%= @order.email%>
+      <% end %>  </h4>
+    <% @items.each do |item|%> 
+   <b> <%= item.product.name %></b><br>
+    <img src= <%= item.product.image.tiny  %>/>
+    <%= item.product.description%> Amount:   <%= item.quantity%> Total: <%= item.total_price_cents/100%>
+ 
+    <br>
+    <br>
+    <br>
+    <%end%>
+    <p>Total Charge: <%= @order.total_cents * 0.01 %>
+
   </header>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+<div>
 
+        <tbody>
+        <% @cart_total = 0 %>
+        <% cart.each do |product_id, details| %>
+          <%= render 'item', product_id: product_id, details: details %>
+        <% end %>
+      </tbody>
+</div>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
+
+
+ <%# @order = Order.find(params[:id]) %>
+
+ 
