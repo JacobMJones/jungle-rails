@@ -5,7 +5,7 @@
   </header>
 
 
-  <%= form_for :reviews, url: "/products/#{@product.id}/reviews" do |f| %>
+  <%= form_for [@product, @review] do |f| %>
 
   Description: <%= f.text_field :description %>
   Rating:<%= f.select :rating, [1,2,3,4,5] %>
