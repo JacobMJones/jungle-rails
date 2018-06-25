@@ -4,6 +4,16 @@
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
   </header>
 
+
+  <%= form_for :reviews, url: "/products/#{@product.id}/reviews" do |f| %>
+
+  Description: <%= f.text_field :description %>
+  Rating:<%= f.select :rating, [1,2,3,4,5] %>
+  
+  <%= f.submit "Submit" %>
+
+<% end %>
+
   <article class="product-detail">
 
     <div class="row">
@@ -22,6 +32,13 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Review</dt>
+          <% @product.reviews.each do |review| %>
+            <dd>description: <%= review.description %></dd>
+            <dd>rating: <%= review.rating%></dd></dd>
+            <% end %>
+
+
         </dl>
       </div>
     </div>

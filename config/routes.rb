@@ -18,6 +18,11 @@ Rails.application.routes.draw do
 
 
 
+resources :products do
+  resources :reviews, only: [:create ]
+end
+
+
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
